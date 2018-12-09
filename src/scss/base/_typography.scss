@@ -1,0 +1,33 @@
+@mixin section-title {
+    font-family: 'Lucida Grande';
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #3C3C3C;
+}
+@mixin section-subtitle {
+    font-family: 'Lucida Grande';
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgba(#3C3C3C, .67);
+}
+@mixin section-body {
+    font-family: 'Helvetica Neue';
+    font-size: 1.3em;
+    color: rgba(#3C3C3C, .76);
+    letter-spacing: 0.05em;
+    line-height: 1.65;
+}
+
+.section-title {
+    @include section-title;
+
+    &.--small {
+        font-size: 1.8em;
+    }
+}
+.section-subtitle {
+    @include section-subtitle;
+}
+.section-body {
+    @include section-body;
+}

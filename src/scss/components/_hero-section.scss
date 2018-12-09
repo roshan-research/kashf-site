@@ -1,0 +1,82 @@
+.hero-section {
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &::after {
+        @include cover;
+        content: '';
+        background-color: rgba(#000, .66);
+        backdrop-filter: blur(7px);
+    }
+}
+
+.hero-illustration {
+    position: absolute;
+    width: 50%;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        stroke-dasharray: 230;
+        stroke-dashoffset: 230;
+
+        .hero-section.--play & {
+            stroke-dasharray: 230;
+            stroke-dashoffset: 230;
+        }
+    }
+
+    &.--top {
+        top: 0;
+        right: 0;
+        transform: translate(35%, -25%)
+    }
+
+    &.--bottom {
+        transform: translate(-35%, 25%) rotate(180deg);
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.hero-content {
+    @include centered(true, true);
+    z-index: 10;
+    width: 50%;
+    color: #ffffff;
+    text-align: center;
+
+    &__title {
+        font-size: 10em;
+        font-family: 'Courier New';
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 20px;
+    }
+    &__slogan {
+        font-size: 2em;
+        line-height: 1.3;
+        font-family: 'Helvetica Neue';
+        font-weight: bold;
+        letter-spacing: 5px;
+        color: #DEDEDE;
+    }
+}
+
+.hero-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5rem 0;
+    text-align: center;
+}

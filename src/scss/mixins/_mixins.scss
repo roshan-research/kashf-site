@@ -1,0 +1,97 @@
+/**
+ * media queries
+ * @param  {int} $width
+ */
+@mixin mq_max($width){
+	@media only screen and (max-width: $width){@content;}
+}
+@mixin mq_min($width){
+	@media only screen and (min-width: $width + 1){@content;}
+}
+@mixin mq_min_max($min_width,$max_width){
+	@media only screen and (min-width: $min_width) and (max-width: $max_width){@content;}
+}
+
+
+/**
+ * example array of z-indexes
+ * should be placed in _vars.scss
+ * @param  {string} $layer
+ * @return {int}
+ */
+@function z($layer) {
+	@return map-get($z-layers, $layer);
+}
+
+
+/**
+ * colored overlay on top of elements
+ * using pseudo elements
+ * @param  {string} $pos      before OR after
+ * @param  {string} $color    hex OR rgb(a)
+ * @param  {int} $z_index: 0  z-index of pseudo element
+ */
+@mixin overlay($pos,$color,$z_index: 0) {
+	&::#{$pos} {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $color;
+		z-index: $z_index;
+	}
+}
+
+
+/**
+ * make element center in parent
+ * using absolute positioning
+ * @param  {boolean} $vertical
+ * @param  {boolean} $horizontal
+ */
+@mixin centered($vertical,$horizontal){
+	position: absolute;
+	@if($vertical and $horizontal){
+		left: 50%;
+		top:50%;
+    transform: translate(-50%,-50%);
+	}
+	@elseif($vertical){
+		left:50%;
+    transform: translateX(-50%);
+	}
+	@elseif($horizontal){
+		top:50%;
+    transform: translateY(-50%);
+	}
+}
+
+
+@mixin cover {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+
+@function alphaless ($current_color, $current_alpha, $background_color: white) {
+    $current_red: red($current_color);
+    $current_green: green($current_color);
+    $current_blue: blue($current_color);
+	
+	$background_red: red($current_color);
+    $background_green: green($current_color);
+    $background_blue: blue($current_color);
+
+	$result_red: ($current_red - ((1 - $current_alpha) * $background_red)) / $current_alpha;
+	$result_green: ($current_green - ((1 - $current_alpha) * $background_green)) / $current_alpha;
+	$result_blue: ($current_blue - ((1 - $current_alpha) * $background_blue)) / $current_alpha;
+
+	@return rgb($result_red, $result_green, $result_blue);
+
+}

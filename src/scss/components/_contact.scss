@@ -1,0 +1,151 @@
+.contact-area {
+    background-color: $contact-area-bg;
+
+    .wrapper {
+        display: table;
+        width: 100%;
+        margin-left: -$contact-col-gap;
+        margin-right: -$contact-col-gap;
+        font-size: 0;
+    }
+
+    .section-header {
+        text-align: left;
+    }
+}
+
+.contact-headers,
+.contact-body {
+    display: flex;
+}
+
+.contact-headers {
+
+    .section-title {
+        margin-bottom: 7rem;
+    }
+}
+
+.contact-col {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-right: $contact-col-gap;
+    padding-left: $contact-col-gap;
+    font-size: 1rem;
+}
+
+.contact-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    border-radius: $contact-card-border-radius;
+    box-shadow: $contact-card-shadow;
+    padding: $contact-card-inner-pad $contact-card-inner-pad $contact-card-bottom-pad;
+    background-color: #fff;
+
+    &__btn {
+        position: absolute;
+        bottom: 0;
+        right: 1rem;
+        transform: translateY(50%);
+    }
+}
+
+.contact-details {
+
+    .row {
+        flex: 1 0 auto;
+        // + .row {
+        //     margin-top: 2rem;
+        // }
+    }
+}
+
+.contact-item {
+    display: inline-table;
+    font-family: HelveticaNeue-Medium;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    color: $contact-detail-color;
+    opacity: 0.5;
+
+    &__icon {
+        display: table-cell;
+        vertical-align: top;
+        width: 1.8rem;
+        height: auto;
+
+        svg {
+            display: block;
+            width: 100%;
+            fill: none;
+            stroke: $contact-detail-color;
+            transition: $transition;
+        }
+    }
+
+    span {
+        display: table-cell;
+        vertical-align: top;
+        padding-left: 1rem;
+        line-height: 1.5;
+    }
+}
+
+a.contact-item {
+    transition: $transition;
+
+    &:hover {
+        color: $contact-item-hover-color;
+        .contact-item__icon svg {
+            stroke: $contact-item-hover-color;
+        }
+    }
+
+    &[href^=mailto] {
+        text-transform: uppercase;
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+
+    > * + * {
+        margin-top: 1rem;    
+    }
+
+    input,
+    textarea {
+        @extend %reset-input;
+        width: 100%;
+        padding: 1rem;
+        border: $contact-input-border;
+        color: $contact-input-color;
+        font-family: HelveticaNeue;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        transition: $transition;
+
+        &::placeholder {
+            color: $contact-input-placeholder-color;
+        }
+
+        &:focus {
+            border-color: $contact-input-focus-border-color;
+        }
+        &:valid {
+            border-color: $contact-input-valid-border-color;
+        }
+
+    }
+
+    textarea {
+        flex: 1 0 auto;
+        min-height: 12rem;
+        resize: none;
+    }
+}

@@ -1,0 +1,29 @@
+%full-bg {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+%reset-input {
+	padding: 0;
+	border: none;
+	outline: none;
+	background: none;
+}
+%cover{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+%clearfix {
+	zoom:1;/* For IE 6/7 (trigger hasLayout) */
+	&::after,&::before{
+		content: "";
+		display: block;
+	}
+	&::after{
+		clear: both;
+	}
+}

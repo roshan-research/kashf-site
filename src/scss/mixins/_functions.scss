@@ -1,0 +1,69 @@
+/**
+ * return z-index of z-layer maps
+ * maps is placed in _vars.scss
+ * @param  {string} $layer
+ * @return {int}
+ */
+@function z($layer) {
+	@if map-has-key($z-layers, $layer){
+		@return map-get($z-layers, $layer);
+	}
+
+	@warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
+
+
+/**
+ * return hex code of color maps
+ * maps is placed in _vars.scss
+ * @param  {string} $key color name
+ * @return {string}      color hex
+ */
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+/**
+ * return amount of width maps
+ * maps are in _vars.scss
+ * @param  {string} $key width name
+ * @return {string}      width amount
+ */
+@function width($key) {
+  @if map-has-key($widths, $key) {
+    @return map-get($widths, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $widths.";
+  @return null;
+}
+
+/**
+ * return amount of height maps
+ * maps are in _vars.scss
+ * @param  {string} $key height name
+ * @return {string}      height amount
+ */
+@function height($key) {
+  @if map-has-key($heights, $key) {
+    @return map-get($heights, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $heights.";
+  @return null;
+}
+
+/**
+ * generate rem size
+ * @param  {number} $pxsize
+ * @return {string}
+ */
+@function rem($pxsize) {
+  @return ($pxsize/16)+rem;
+}

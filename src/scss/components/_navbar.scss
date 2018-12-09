@@ -1,0 +1,66 @@
+.navbar {
+    z-index: z('navbar');
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 0;
+    font-size: 0;
+    transition: $transition;
+    
+    &.--condensed {
+        padding: 0;
+        background-color: rgba(#D8D8D8, 0.18);
+        background-color: rgba(#f7f7f7, 0.95);
+        // background-color: alphaless(#D8D8D8, 0.18);
+
+        a {
+            color: #6C6C6C;
+        }
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        padding: $navbar-link-y-pad $navbar-link-x-pad;
+        font-family: HelveticaNeue-Bold;
+        font-size: .7rem;
+        color: #999999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: $transition;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgba(#000, 0.1);
+            transition: width .2s ease;
+        }
+
+        &:hover {
+            color: #fff;
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.navbar-inner {
+    @extend %clearfix;
+    margin-left: -$navbar-link-x-pad;
+    margin-right: -$navbar-link-x-pad;
+}
+
+.navbar-sections {
+    float: left;
+}
+.navbar-main-link {
+    float: right;
+}

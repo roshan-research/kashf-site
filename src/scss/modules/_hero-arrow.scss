@@ -1,0 +1,47 @@
+.arrow-btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    font-size: 3rem;
+    border: $arrow-button-thickness solid $arrow-button-color;
+    border-radius: 50%;
+    color: $arrow-button-color;
+    transition: $transition;
+    opacity: 0.5;
+
+    &:hover {
+        border-color: $arrow-button-hover-color;
+        i::before { background-color: $arrow-button-hover-color; }
+        i::after { border-color: $arrow-button-hover-color; }
+    }
+
+    > i {
+        @include centered(true, true);
+        width: 0.45em;
+        height: 0.45em;
+
+        &::before, 
+        &::after {
+            content: '';
+            border-color: $arrow-button-color;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transition: $transition;
+        }
+        &::before {
+            transform: translateX(-50%);
+            height: 100%;
+            width: $arrow-button-thickness;
+            background-color: $arrow-button-color;
+        }
+        &::after {
+            transform: translateX(-50%) rotate(45deg);
+            height: 80%;
+            width: 80%;
+            border-right: $arrow-button-thickness solid;
+            border-bottom: $arrow-button-thickness solid;
+        }
+    }
+}

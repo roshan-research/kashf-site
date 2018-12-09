@@ -1,0 +1,42 @@
+.intro-area {
+
+}
+
+.intro-inner {
+    margin-left: -1em;
+    margin-right: -1em;
+    font-size: 0;
+}
+
+.intro-column {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 1em;
+    padding-left: 1em;
+    font-size: 1rem;
+
+    &.--content {
+        width: 55%;
+    }
+    &.--illustration {
+        width: 45%;
+    }
+}
+
+.intro-content {
+    padding: 4em;
+    background-image: linear-gradient(90deg, $background-light-gray 2%, rgba(255,255,255,0.00) 100%);
+    border-radius: 1em;
+
+    &__subtitle {
+        margin-top: 0.5em;
+    }
+    &__body {
+        margin-top: 3rem;
+    }
+}
+
+.intro-illustration {
+    width: 80%;
+    height: auto;
+}
