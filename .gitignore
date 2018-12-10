@@ -4,6 +4,7 @@
 # Dependency directories
 node_modules
 dist
+.publish
 
 ### macOS ###
 *.DS_Store
