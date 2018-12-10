@@ -20,6 +20,7 @@ const svgSprite = require('gulp-svg-sprites');
 const sequence = require('run-sequence');
 const stripDebug = require('gulp-strip-debug');
 const del = require('del');
+const ghPages = require('gulp-gh-pages');
 
 const cwd = path.basename(process.cwd());
 var isProduction = process.env.NODE_ENV == "production" || false;
@@ -206,3 +207,7 @@ gulp.task('build', function() {
 });
 
 gulp.task('default', ['serve']);
+
+gulp.task('deploy', function deploy() {
+	return gulp.src('./dist/**/*').pipe(ghPages());
+});
