@@ -1,33 +1,38 @@
 {
-  "name": "kashf-landing-page",
+  "name": "kashf",
   "dependencies": {
     "imagesloaded": "^4.1.4",
     "masonry-layout": "^4.2.2",
     "smooth-scroll": "^15.0.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/preset-env": "^7.1.5",
-    "autoprefixer": "^9.3.1",
-    "babel-loader": "^8.0.4",
-    "css-loader": "^1.0.1",
-    "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-inline-svg-plugin": "^1.2.4",
-    "html-webpack-plugin": "^3.2.0",
-    "import-glob-loader": "^1.1.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.10.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
-  },
   "scripts": {
-    "build": "webpack --mode production",
-    "watch": "webpack --mode production --watch",
-    "dev": "webpack-dev-server --mode development --open"
+    "build": "gulp build",
+    "dev": "gulp serve"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "autoprefixer": "^9.4.2",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.3",
+    "browserify": "^16.2.3",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.2.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-svg-sprites": "^4.1.2",
+    "gulp-uglify": "^3.0.1",
+    "gulp-util": "^3.0.8",
+    "lazypipe": "^1.0.1",
+    "run-sequence": "^2.2.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
