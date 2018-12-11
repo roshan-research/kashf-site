@@ -22,6 +22,7 @@ const stripDebug = require('gulp-strip-debug');
 const del = require('del');
 const ghPages = require('gulp-gh-pages');
 const pug = require('gulp-pug-i18n');
+const buster = require('gulp-cache-bust');
 
 const cwd = path.basename(process.cwd());
 var isProduction = process.env.NODE_ENV == "production" || false;
@@ -114,6 +115,12 @@ gulp.task('pug', () => {
   }
   return pugFn();
 });
+
+gulp.task('cachebust', () => {
+	return gulp.src('./dist/**/*.html')
+	  .pipe(buster())
+	  .pipe(gulp.dest('./dist'))
+  });
 
 gulp.task('js', function() {
 	var bundler = browserify(paths.js.src, {
@@ -238,7 +245,7 @@ gulp.task('serve', function() {
 
 gulp.task('build', function() {
 	isProduction = true;
-	sequence('clean', 'all');
+	sequence('clean', 'all', 'cachebust');
 });
 
 gulp.task('default', ['serve']);
