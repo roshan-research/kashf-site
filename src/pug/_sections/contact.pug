@@ -1,0 +1,34 @@
+section#contact.section.contact-area
+    .container
+        .wrapper
+            .contact-headers
+                .contact-col
+                    h3.section-title= $i18n.contact.title
+                .contact-col
+                    h4.section-title.--small= $i18n.contact.form.title
+            .contact-body
+                .contact-col
+                    .contact-card.contact-details
+                        p.row
+                            a.contact-item(href='mailto:'+$i18n.contact.email.address)
+                                i.contact-item__icon
+                                    include ../../images/email.svg
+                                span= $i18n.contact.email.label
+                        p.row
+                            a.contact-item(href='tel:'+$i18n.contact.tel.address)
+                                i.contact-item__icon
+                                    include ../../images/phone.svg
+                                span= $i18n.contact.tel.label
+                        p.row.contact-item
+                            i.contact-item__icon
+                                include ../../images/pin.svg
+                            span= $i18n.contact.address
+                        a.contact-card__btn.btn.--primary.--small(href='http://sobhe.ir' target='_blank')= $i18n.contact.sobhe_link
+                .contact-col
+                    .contact-card
+                        form#contactForm.contact-form(action='https://formspree.io/'+$i18n.contact.contact_form_action_email method='POST')
+                            input(name='email' type='email' placeholder=$i18n.email_placeholder required='')
+                            textarea(name='message' placeholder=$i18n.message_placeholder required='')
+                            input(name='_next' type='hidden' value='http://sobhe.ir/kashf' style='display: none')
+                            input(name='_subject' type='hidden' value='Kashf Contact Form Submission!')
+                            button.contact-card__btn.btn.--primary.--small(type='submit' form='contactForm' target='_blank')= $i18n.contact.form.button

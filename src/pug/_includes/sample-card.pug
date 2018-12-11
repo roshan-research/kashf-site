@@ -1,0 +1,13 @@
+mixin card(props)
+    .sample(class=props.img ? '--hidden' : '')
+        .sample-inner
+            - if(props.img)
+                img.sample__img(src=props.img alt=props.title)
+            - if(props.text)
+                .sample__text.--light
+                    p #{props.text}
+            .sample__footer
+                each tag in (props.tags) ? props.tags : []
+                    span.sample__tag
+                        span.score #{tag.score}
+                        |  #{tag.title}

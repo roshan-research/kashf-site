@@ -1,0 +1,15 @@
+section#hero.hero-section
+    .hero-bg
+        .hero-illustration.--top
+            include ../../images/circuit.svg
+        .hero-illustration.--bottom
+            include ../../images/circuit.svg
+    if $i18n.hero
+        .hero-content
+            if $i18n.hero.title
+                h1.hero-content__title= $i18n.hero.title
+            if $i18n.hero.slogan
+                h2.hero-content__slogan= $i18n.hero.slogan
+    .hero-footer
+        a.arrow-btn(data-scroll='' href='#intro')
+            i

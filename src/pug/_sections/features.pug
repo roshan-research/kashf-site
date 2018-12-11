@@ -1,0 +1,30 @@
+section#features.section.features-area
+    .container
+        .section-header
+            h3.section-title=$i18n.features.title
+        
+        - if($i18n.features.list)
+            .features-wrapper
+            
+                mixin feature-card(props)
+                    .feature(class='--'+props.color)
+                        .feature__icon
+                            case props.icon
+                                when 'rocket'
+                                    include ../../images/rocket.svg
+                                when 'tag'
+                                    include ../../images/tag.svg
+                                when 'ruler'
+                                    include ../../images/ruler.svg
+                                when 'fullscreen'
+                                    include ../../images/fullscreen.svg
+                        h4.feature__title= props.title
+                        p.feature__subtext= props.subtext
+                - var chunks = []
+                - chunks[0] = $i18n.features.list.slice(0,2)
+                - chunks[1] = $i18n.features.list.slice(2,4)
+
+                each chunk in chunks
+                    .featrues-wrapper-row
+                        each feat in chunk
+                            +feature-card(feat)

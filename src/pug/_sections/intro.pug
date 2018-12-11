@@ -1,0 +1,13 @@
+section#intro.section.intro-area
+    .container
+        .intro-inner
+            .intro-column.--content
+                .intro-content
+                    h3.intro-content__title.section-title= $i18n.intro.title
+                    p.intro-content__subtitle.section-subtitle= $i18n.intro.subtitle
+                    p.intro-content__body.section-body
+                        | #{$i18n.intro.body}
+            .intro-column.--illustration
+                img.intro-illustration(src='/assets/img/target.svg' alt='Target Illustration')
+        .section-footer
+            a.btn.--primary(data-scroll='' href='#features')= $i18n.intro.button

@@ -1,0 +1,10 @@
+section#samples.section.samples-area
+    .container
+        .samples-area__header.section-header
+            h3.samples-area__title.section-title #{$i18n.samples.title}
+            h4.samples-area__subtitle.section-subtitle #{$i18n.samples.subtitle}
+        .samples-grid
+            incl
+            include ../_includes/sample-card.pug
+            each card in $i18n.samples.list
+                +card(card)

@@ -21,6 +21,7 @@ const sequence = require('run-sequence');
 const stripDebug = require('gulp-strip-debug');
 const del = require('del');
 const ghPages = require('gulp-gh-pages');
+const pug = require('gulp-pug-i18n');
 
 const cwd = path.basename(process.cwd());
 var isProduction = process.env.NODE_ENV == "production" || false;
@@ -34,7 +35,9 @@ const paths = {
     dist: dist
   },
   pug: {
-    src: src + '/**/*.pug',
+    src: src + '/pug/*.pug',
+    watch: src + '/pug/**/*.pug',
+    locales: src + '/locale/*.*',
     dist: dist
   },
   styles: {
@@ -69,15 +72,47 @@ function onError(e) {
 	this.emit('end');
 }
 
-gulp.task('html', function() {
+function htmlFn() {
   return gulp.src(paths.html.src)
     .pipe(gulpif(isProduction, htmlMin({
       sortAttributes: true,
       sortClassName: true,
       collapseWhitespace: true
     })))
-		.pipe(gulp.dest(paths.html.dist))
-		.pipe(gulpif(!isProduction, browserSync.stream()));		
+    .pipe(gulp.dest(paths.html.dist))
+    .pipe(gulpif(!isProduction, browserSync.stream()));
+}
+
+function pugFn() {
+  return gulp.src(paths.pug.src)
+    .pipe(pug({
+      i18n: {
+        locales: 'src/locale/*.*',
+        filename: '{{{lang}}/}{{basename}}.html',
+        default: 'fa'
+      },
+      pretty: true
+    }))
+    .pipe(gulpif(isProduction, htmlMin({
+      sortAttributes: true,
+      sortClassName: true,
+      collapseWhitespace: true
+    })))
+    .pipe(gulp.dest(paths.pug.dist))
+    .pipe(gulpif(!isProduction, browserSync.stream()));
+}
+
+gulp.task('html', () => {
+  if (!isProduction) gulp.watch(paths.html.src, htmlFn);
+  return htmlFn();
+});
+
+gulp.task('pug', () => {
+  if (!isProduction) {
+    gulp.watch(paths.pug.watch, pugFn);
+    gulp.watch(paths.pug.locales, pugFn);
+  }
+  return pugFn();
 });
 
 gulp.task('js', function() {
@@ -186,7 +221,7 @@ gulp.task('browser-sync', function() {
 	});
 });
 
-gulp.task('all', ['html', 'js', 'styles', 'svg-sprite', 'fonts', 'images', 'favicons']);
+gulp.task('all', ['html', 'pug', 'js', 'styles', 'svg-sprite', 'fonts', 'images', 'favicons']);
 
 gulp.task('watch', function() {
 	gulp.watch(paths.html.src, ['html']);
