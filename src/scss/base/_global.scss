@@ -1,18 +1,13 @@
 html,
 body {
+	direction: $direction;
+	text-align: $right;
+	@if($lang == fa) {
+		font-family: Shabnam;
+	}
 	font-size: 16px;
 	line-height: 1.7;
 
 	@include mq_min($xlg){font-size: 18px;}
 	@include mq_min($xxlg){font-size: 20px;}
-}
-body {
-	&.rtl{
-		direction: rtl;
-		text-align: right;
-	}
-	&.ltr{
-		direction: ltr;
-		text-align: left;
-	}
 }

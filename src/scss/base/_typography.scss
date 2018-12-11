@@ -1,20 +1,26 @@
 @mixin section-title {
-    font-family: 'Lucida Grande';
+    @if($lang == en) {
+        font-family: 'Lucida Grande';
+    }
     font-size: 2.5em;
     font-weight: bold;
     color: #3C3C3C;
 }
 @mixin section-subtitle {
-    font-family: 'Lucida Grande';
+    @if($lang == en) {
+        font-family: 'Lucida Grande';
+    }
     font-size: 1.5em;
     font-weight: bold;
     color: rgba(#3C3C3C, .67);
 }
 @mixin section-body {
-    font-family: 'Helvetica Neue';
+    @if($lang == en) {
+        font-family: 'Helvetica Neue';
+        letter-spacing: 0.05em;
+    }
     font-size: 1.3em;
     color: rgba(#3C3C3C, .76);
-    letter-spacing: 0.05em;
     line-height: 1.65;
 }
 
