@@ -6,8 +6,8 @@ html(lang=$i18n.lang)
 		meta(name='viewport' content='width=device-width, initial-scale=1.0')
 		meta(http-equiv='X-UA-Compatible' content='ie=edge')
 		title #{$i18n.site.title}
-		link(rel='stylesheet' href='/assets/css/main'+($i18n.lang != "fa" ? "."+$i18n.lang : "")+'.css')
-		link(rel='shortcut icon' href='/assets/favicons/favicon.png')
+		link(rel='stylesheet' href='./assets/css/main'+($i18n.lang != "fa" ? "."+$i18n.lang : "")+'.css')
+		link(rel='shortcut icon' href='./assets/favicons/favicon.png')
 	body
 		include _includes/header.pug
 		include _sections/hero.pug
@@ -17,4 +17,4 @@ html(lang=$i18n.lang)
 		- if($i18n.contact)
 			include _sections/contact.pug
 		
-		script(src='/assets/js/script.js')
+		script(src='./assets/js/script.js')
