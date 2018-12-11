@@ -242,7 +242,9 @@ gulp.task('browser-sync', function() {
 	});
 });
 
-gulp.task('all', ['html', 'pug', 'js', 'styles', 'svg-sprite', 'fonts', 'images', 'favicons']);
+gulp.task('all', (cb) => {
+  sequence('html', 'pug', 'js', 'styles', 'svg-sprite', 'fonts', 'images', 'favicons', cb);
+});
 
 gulp.task('watch', function() {
 	gulp.watch(paths.html.src, ['html']);
@@ -252,24 +254,24 @@ gulp.task('watch', function() {
 	gulp.watch(paths.styles.src, { cwd:'./' }, ['images']);
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', function(cb) {
   isProduction = false;
   BASEURL = "http://localhost:3000";
-	sequence('clean', 'all', 'browser-sync', 'watch');
+	sequence('clean', 'all', 'browser-sync', 'watch', cb);
 });
 
-gulp.task('build', function() {
+gulp.task('build', function(cb) {
 	isProduction = true;
-	sequence('clean', 'all', 'cachebust');
+	sequence('clean', 'all', 'cachebust', cb);
 });
 
 gulp.task('default', ['serve']);
 
-gulp.task('gh-pages', function deploy() {
+gulp.task('gh-pages', () => {
 	return gulp.src('./dist/**/*').pipe(ghPages());
 });
 
-gulp.task('deploy', function deploy() {
+gulp.task('deploy', (cb) => {
   BASEURL = "http://hashtroodiam.github.io/kashf";
-	sequence('build', 'gh-pages');
+	sequence('build', 'gh-pages', cb);
 });
