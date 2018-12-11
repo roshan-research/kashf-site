@@ -137,11 +137,10 @@ gulp.task('js', function() {
 		})
 		.transform(babelify, { presets: ["@babel/preset-env"] })
 		.bundle()
+    
+    return bundler
 		.pipe(plumber(plumberOptions))
-
-	return bundler
 		.pipe(source('script.js'))
-		.pipe(plumber(plumberOptions))
 		.pipe(buffer())
 		.pipe(gulpif(!isProduction, sourcemaps.init({
 			loadMaps: true
@@ -149,20 +148,18 @@ gulp.task('js', function() {
 		.pipe(gulpif(!isProduction, sourcemaps.write('./')))
     .pipe(gulpif(isProduction, stripDebug()))
     .pipe(gulpif(isProduction, uglify()))
-		.on('error', onError)
     .pipe(gulp.dest(paths.js.dist))
 		.pipe(gulpif(!isProduction, browserSync.stream()));
 });
 
 gulp.task('styles', function() {
 	return gulp.src(paths.styles.src)
+    .pipe(plumber(plumberOptions))
 		.pipe(gulpif(!isProduction, sourcemaps.init()))
 		.pipe(sassGlob())
 		.pipe(sass({
 			outputStyle: (isProduction) ? 'compressed' : 'expanded'
 		}))
-    .on('error', onError)
-    .pipe(plumber(plumberOptions))
     .pipe(gulpif(isProduction, postcss([autoprefixer({
 			browsers: ['> 5%', '> 2% in IR', 'ie >= 9']
 		})])))
@@ -206,10 +203,9 @@ gulp.task('svg-sprite', function() {
 		    return data; // modify the data and return it
 		  }
 		}))
-		.on('error', onError)
+    .pipe(plumber(plumberOptions))
 		.pipe(gulp.dest(paths.svgSprite.dist))
 		.pipe(gulpif(!isProduction, browserSync.stream()));
-    .pipe(plumber(plumberOptions))
 });
 
 gulp.task('fonts', function () {
