@@ -22,6 +22,8 @@ const stripDebug = require('gulp-strip-debug');
 const del = require('del');
 const ghPages = require('gulp-gh-pages');
 const pug = require('gulp-pug-i18n');
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
 const buster = require('gulp-cache-bust');
 
 const cwd = path.basename(process.cwd());
@@ -67,14 +69,20 @@ const paths = {
   },
 };
 
-function onError(e) {
-	gutil.log(gutil.colors.red('========= ERROR ========='));
-	gutil.log(e.toString());
-	this.emit('end');
+const plumberOptions = {
+  errorHandler: function (err) {
+    gutil.log(gutil.colors.red('========= ERROR ========='));
+    gutil.log(err.toString());
+    notify.onError({
+      title: "Error in: " + err.plugin,
+      message: err.toString()
+    })(err);
+  }
 }
 
 function htmlFn() {
   return gulp.src(paths.html.src)
+    .pipe(plumber(plumberOptions))
     .pipe(gulpif(isProduction, htmlMin({
       sortAttributes: true,
       sortClassName: true,
@@ -86,6 +94,7 @@ function htmlFn() {
 
 function pugFn() {
   return gulp.src(paths.pug.src)
+    .pipe(plumber(plumberOptions))
     .pipe(pug({
       i18n: {
         locales: 'src/locale/*.*',
@@ -128,10 +137,11 @@ gulp.task('js', function() {
 		})
 		.transform(babelify, { presets: ["@babel/preset-env"] })
 		.bundle()
-		.on('error', onError);
+		.pipe(plumber(plumberOptions))
 
 	return bundler
 		.pipe(source('script.js'))
+		.pipe(plumber(plumberOptions))
 		.pipe(buffer())
 		.pipe(gulpif(!isProduction, sourcemaps.init({
 			loadMaps: true
@@ -152,6 +162,7 @@ gulp.task('styles', function() {
 			outputStyle: (isProduction) ? 'compressed' : 'expanded'
 		}))
     .on('error', onError)
+    .pipe(plumber(plumberOptions))
     .pipe(gulpif(isProduction, postcss([autoprefixer({
 			browsers: ['> 5%', '> 2% in IR', 'ie >= 9']
 		})])))
@@ -198,6 +209,7 @@ gulp.task('svg-sprite', function() {
 		.on('error', onError)
 		.pipe(gulp.dest(paths.svgSprite.dist))
 		.pipe(gulpif(!isProduction, browserSync.stream()));
+    .pipe(plumber(plumberOptions))
 });
 
 gulp.task('fonts', function () {
