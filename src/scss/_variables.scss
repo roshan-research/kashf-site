@@ -1,4 +1,22 @@
 //===========================================
+// i18n
+//===========================================
+$lang: persian !default;
+$direction: rtl !default;
+/**
+ * Flips any values
+ */
+ @function flip($arabic, $latin) {
+	@return if($direction == ltr, #{$latin}, #{$arabic});
+  }
+  
+  /**
+   * Flips left for right, right for left
+   */
+  $left: flip(left, right);
+  $right: flip(right, left);
+
+//===========================================
 // Z-Indexes
 //===========================================
 $z-layers: (
