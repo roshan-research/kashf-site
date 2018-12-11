@@ -1,13 +1,15 @@
 include _includes/mixins.pug
+include _config/variables.pug
 
 html(lang=$i18n.lang)
 	head
 		meta(charset='UTF-8')
 		meta(name='viewport' content='width=device-width, initial-scale=1.0')
 		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		base(href=baseurl)
 		title #{$i18n.site.title}
-		link(rel='stylesheet' href='./assets/css/main'+($i18n.lang != "fa" ? "."+$i18n.lang : "")+'.css')
-		link(rel='shortcut icon' href='./assets/favicons/favicon.png')
+		link(rel='stylesheet' href=styleUrl)
+		link(rel='shortcut icon' href=faviconUrl)
 	body
 		include _includes/header.pug
 		include _sections/hero.pug
@@ -17,4 +19,4 @@ html(lang=$i18n.lang)
 		- if($i18n.contact)
 			include _sections/contact.pug
 		
-		script(src='./assets/js/script.js')
+		script(src=scriptUrl)

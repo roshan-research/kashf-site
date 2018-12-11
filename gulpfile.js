@@ -28,6 +28,7 @@ const buster = require('gulp-cache-bust');
 
 const cwd = path.basename(process.cwd());
 var isProduction = process.env.NODE_ENV == "production" || false;
+var BASEURL = process.cwd() + "/dist";
 
 const src = 'src';
 const dist = 'dist';
@@ -96,6 +97,9 @@ function pugFn() {
   return gulp.src(paths.pug.src)
     .pipe(plumber(plumberOptions))
     .pipe(pug({
+      data: {
+        baseurl: BASEURL
+      },
       i18n: {
         locales: 'src/locale/*.*',
         filename: '{{{lang}}/}{{basename}}.html',
@@ -127,7 +131,9 @@ gulp.task('pug', () => {
 
 gulp.task('cachebust', () => {
 	return gulp.src('./dist/**/*.html')
-	  .pipe(buster())
+	  .pipe(buster({
+      type: "timestamp"
+    }))
 	  .pipe(gulp.dest('./dist'))
   });
 
@@ -247,7 +253,8 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', function() {
-	isProduction = false;
+  isProduction = false;
+  BASEURL = "http://localhost:3000";
 	sequence('clean', 'all', 'browser-sync', 'watch');
 });
 
@@ -258,6 +265,11 @@ gulp.task('build', function() {
 
 gulp.task('default', ['serve']);
 
-gulp.task('deploy', function deploy() {
+gulp.task('gh-pages', function deploy() {
 	return gulp.src('./dist/**/*').pipe(ghPages());
+});
+
+gulp.task('deploy', function deploy() {
+  BASEURL = "http://hashtroodiam.github.io/kashf";
+	sequence('build', 'gh-pages');
 });
