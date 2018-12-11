@@ -1,34 +1,5 @@
-$fonts-dist-folder: "/assets/fonts";
+$fonts-dist-folder: "../fonts";
 
-@font-face {
-	font-family: Shabnam;
-	font-style: normal;
-	font-weight: normal;
-	src: url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.eot');
-	src: url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: Shabnam;
-	font-style: normal;
-	font-weight: lighter;
-	src: url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.eot');
-	src: url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Light.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: Shabnam;
-	font-style: normal;
-	font-weight: bold;
-	src: url('#{$fonts-dist-folder}/shabnam/Shabnam-Bold.eot');
-	src: url('#{$fonts-dist-folder}/shabnam/Shabnam-Bold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Bold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Bold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-		 url('#{$fonts-dist-folder}/shabnam/Shabnam-Bold.ttf') format('truetype');
-}
+@include font-face-generator('Shabnam', 'normal', '#{$fonts-dist-folder}/shabnam/Shabnam');
+@include font-face-generator('Shabnam', 'lighter', '#{$fonts-dist-folder}/shabnam/Shabnam-Light');
+@include font-face-generator('Shabnam', 'bold', '#{$fonts-dist-folder}/shabnam/Shabnam-Bold');

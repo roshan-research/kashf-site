@@ -93,5 +93,17 @@
 	$result_blue: ($current_blue - ((1 - $current_alpha) * $background_blue)) / $current_alpha;
 
 	@return rgb($result_red, $result_green, $result_blue);
+}
 
+@mixin font-face-generator($family-name, $weight, $url) {
+	@font-face {
+		font-family: #{$family-name};
+		font-style: normal;
+		font-weight: #{$weight};
+		src: url('#{$url}.eot');
+		src: url('#{$url}.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+			 url('#{$url}.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+			 url('#{$url}.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+			 url('#{$url}.ttf') format('truetype');
+	}
 }
