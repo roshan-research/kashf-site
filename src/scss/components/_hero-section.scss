@@ -1,6 +1,19 @@
 .hero-section {
+    position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    background-color: $hero-bg;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-left: 100vw solid transparent;
+        border-right: 100vw solid transparent;
+        border-top: 24vh solid $hero-bg;
+    }
 }
 
 .hero-bg {
@@ -9,14 +22,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    // overflow: hidden;
 
-    &::after {
-        @include cover;
-        content: '';
-        background-color: rgba(#000, .66);
-        backdrop-filter: blur(7px);
-    }
+    // &::after {
+    //     @include cover;
+    //     content: '';
+    //     background-color: rgba(#000, .66);
+    //     backdrop-filter: blur(7px);
+    // }
 }
 
 .hero-illustration {
