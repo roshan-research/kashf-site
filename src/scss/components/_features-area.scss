@@ -1,32 +1,67 @@
 .features-area {
-    background-color: $background-light-gray;
+    position: relative;
+
+    &::before {
+        @include centered(true,true);
+        z-index: -1;
+        content: '';
+        display: block;
+        position: absolute;
+        width: 70vw;
+        height: 80vw;
+        max-width: 800px;
+        max-height: 900px;
+        background-color: #F5F9FF;
+        border-radius: $card-border-radius*3;
+        @include fa {
+            transform: translate(-50%,-50%) rotateZ(7deg);
+        }
+        @include en {
+            transform: translate(-50%,-50%) rotateZ(-7deg);
+        }
+    }
+
+    .section-header {
+        margin-bottom: 5rem;
+    }
 }
 
 .features-wrapper {
     display: table;
-    box-shadow: 0 0 3em rgba(#000, 0.13);
-    background-color: #fff;
-
+    margin: -1.5em;
+    
     &-row {
         display: table-row;
+        margin-bottom: 1rem;
     }
 }
 
 .feature {
     display: table-cell;
     width: 50%;
-    padding: 2em;
-
+    padding: 1.5em;
+    
+    &__inner {
+        padding: 2em;
+        box-shadow: 0 0 3em rgba(#000, 0.13);
+        border-radius: $card-border-radius;
+    }
+    
     $accent-colors: (
         blue: #3f96ec,
         orange: #C36312,
         yellow: #FFE100,
         green: #7ACFC0,
     );
-
+        
     @each $name, $value in $accent-colors {
         &.--#{$name} {
-            background: radial-gradient(circle at 17% 40%, rgba(255,255,255,0) 15%,rgba($value,.7) 250%);
+            .feature__inner {
+                background: radial-gradient(circle at (100% - 17%)  40%, rgba(255,255,255,0) 15%,rgba($value,.7) 250%), #fff;
+                @include en {
+                    background: radial-gradient(circle at 17% 40%, rgba(255,255,255,0) 15%,rgba($value,.7) 250%), #fff;
+                }
+            } 
             .feature__icon > svg {
                 fill: $value
             }
@@ -44,19 +79,27 @@
     }
 
     &__title {
-        font-family: HelveticaNeue-Medium;
         font-size: 1.5em;
         color: #000000;
-        letter-spacing: 0.1em;
         text-transform: uppercase;
+        @include fa {
+            font-weight: bold;
+        }
+        @include en {
+            font-family: HelveticaNeue-Medium;
+            letter-spacing: 0.1em;
+        }
     }
 
     &__subtext {
+        max-width: 80%;
         margin-top: .5em;
-        font-family: HelveticaNeue;
         font-size: 1em;
         color: rgba(#3C3C3C,0.76);
-        letter-spacing: 0.01em;
         line-height: 1.5;
+        @include en {
+            font-family: HelveticaNeue;
+            letter-spacing: 0.01em;
+        }
     }
 }

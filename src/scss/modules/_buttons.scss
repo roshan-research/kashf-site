@@ -1,13 +1,16 @@
 .btn {
     display: inline-block;
     vertical-align: middle;
-    padding: 0.5em 2em;
+    padding: 0.2em 2.2em;
     border-width: 0.1em;
     border-style: solid;
     border-radius: 100px;
-    font-family: HelveticaNeue;
-    font-size: 1.5rem;
-    letter-spacing: 0.8px;
+    font-size: 1.2rem;
+    
+    @include en {
+        font-family: HelveticaNeue;
+        letter-spacing: 0.8px;
+    }
     
     &.--primary {
         border-color: alphaless(rgb(114,170,224), 0.66);
@@ -23,7 +26,7 @@
     }
 
     &.--small {
-        padding: 0.5em 2em;
+        padding: 0.2em 2.2em;
         font-size: 1.2rem;
     }
 }

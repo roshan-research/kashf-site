@@ -4,8 +4,7 @@ nav#navbar.navbar
       .navbar-sections
         each link in $i18n.nav ? $i18n.nav : []
           a(data-scroll='' href='#'+link.url) #{link.title}
-      .navbar-main-link
         - if($i18n.lang == 'fa')
           a(href='/en') English
         - else
-          a(href='/') فارسی
+          a(href='/' class='type-fa') فارسی

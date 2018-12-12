@@ -8,18 +8,19 @@ section#features.section.features-area
             
                 mixin feature-card(props)
                     .feature(class='--'+props.color)
-                        .feature__icon
-                            case props.icon
-                                when 'rocket'
-                                    include ../../images/rocket.svg
-                                when 'tag'
-                                    include ../../images/tag.svg
-                                when 'ruler'
-                                    include ../../images/ruler.svg
-                                when 'fullscreen'
-                                    include ../../images/fullscreen.svg
-                        h4.feature__title= props.title
-                        p.feature__subtext= props.subtext
+                        .feature__inner
+                            .feature__icon
+                                case props.icon
+                                    when 'rocket'
+                                        include ../../images/rocket.svg
+                                    when 'tag'
+                                        include ../../images/tag.svg
+                                    when 'ruler'
+                                        include ../../images/ruler.svg
+                                    when 'fullscreen'
+                                        include ../../images/fullscreen.svg
+                            h4.feature__title= props.title
+                            p.feature__subtext= props.subtext
                 - var chunks = []
                 - chunks[0] = $i18n.features.list.slice(0,2)
                 - chunks[1] = $i18n.features.list.slice(2,4)

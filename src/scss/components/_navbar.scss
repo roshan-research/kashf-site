@@ -10,8 +10,8 @@
     
     &.--condensed {
         padding: 0;
-        background-color: rgba(#D8D8D8, 0.18);
-        background-color: rgba(#f7f7f7, 0.95);
+        background-color: rgba($hero-bg, 0.18);
+        // background-color: rgba(#f7f7f7, 0.95);
         // background-color: alphaless(#D8D8D8, 0.18);
 
         a {
@@ -24,12 +24,14 @@
         display: inline-block;
         vertical-align: middle;
         padding: $navbar-link-y-pad $navbar-link-x-pad;
-        font-family: HelveticaNeue-Bold;
         font-size: .7rem;
         color: #999999;
-        letter-spacing: 0.05em;
         text-transform: uppercase;
         transition: $transition;
+        @include en {
+            font-family: HelveticaNeue-Bold;
+            letter-spacing: 0.05em;
+        }
 
         &::before {
             content: '';
@@ -59,8 +61,8 @@
 }
 
 .navbar-sections {
-    float: left;
+    float: $right;
 }
 .navbar-main-link {
-    float: right;
+    float: $left;
 }

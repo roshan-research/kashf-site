@@ -23,7 +23,7 @@
 
 .sample {
     position: relative;
-    float: left;
+    float: $right;
     width: $sample-area-column-width;
     padding: $sample-card-outer-pad;
     transition: transform .2s ease;
@@ -58,10 +58,12 @@
         }
 
         p {
-            font-family: TimesNewRomanPSMT;
             font-size: 1.3em;
             line-height: 1.5;
-            letter-spacing: .05em;
+            @include en {
+                font-family: TimesNewRomanPSMT;
+                letter-spacing: .05em;
+            }
         }
 
         &.--dark {
@@ -83,7 +85,7 @@
         position: relative;
         z-index: 1;
         padding: $sample-card-footer-padding;
-        text-align: left;
+        text-align: $right;
         line-height: 1;
         background-color: #fff;
         transition: $transition;
@@ -96,10 +98,15 @@
         }
     }
     &__tag {
-        font-family: DINAlternate-Bold;
         font-size: 2em;
         color: #6C6C6C;
-        text-transform: lowercase;
+        @include fa {
+            font-weight: bold;
+        }
+        @include en {
+            font-family: DINAlternate-Bold;
+            text-transform: lowercase;
+        }
 
         .score {
             font-size: 0.8em;

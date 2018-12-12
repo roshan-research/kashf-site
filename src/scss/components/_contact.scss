@@ -1,5 +1,19 @@
 .contact-area {
-    background-color: $contact-area-bg;
+    position: relative;
+    background-color: #F5F9FF;
+    margin-top: 5rem;
+    padding-top: 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        border-#{$left}: 100vw solid transparent;
+        border-bottom: 15vw solid #F5F9FF;
+        pointer-events: none;
+    }
 
     .wrapper {
         display: table;
@@ -65,11 +79,16 @@
 
 .contact-item {
     display: inline-table;
-    font-family: HelveticaNeue-Medium;
     font-size: 1rem;
-    letter-spacing: 0.05em;
     color: $contact-detail-color;
     opacity: 0.5;
+    @include fa {
+        font-size: 1.2rem;
+    }
+    @include en {
+        font-family: HelveticaNeue-Medium;
+        letter-spacing: 0.05em;
+    }
 
     &__icon {
         display: table-cell;
@@ -89,7 +108,7 @@
     span {
         display: table-cell;
         vertical-align: top;
-        padding-left: 1rem;
+        padding-#{$right}: 1rem;
         line-height: 1.5;
     }
 }
@@ -125,10 +144,12 @@ a.contact-item {
         padding: 1rem;
         border: $contact-input-border;
         color: $contact-input-color;
-        font-family: HelveticaNeue;
         font-size: 1rem;
-        letter-spacing: 0.05em;
         transition: $transition;
+        @include en {
+            font-family: HelveticaNeue;
+            letter-spacing: 0.05em;
+        }
 
         &::placeholder {
             color: $contact-input-placeholder-color;

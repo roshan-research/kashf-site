@@ -59,11 +59,11 @@
 		top:50%;
     transform: translate(-50%,-50%);
 	}
-	@elseif($vertical){
+	@else if($vertical){
 		left:50%;
     transform: translateX(-50%);
 	}
-	@elseif($horizontal){
+	@else if($horizontal){
 		top:50%;
     transform: translateY(-50%);
 	}
@@ -105,5 +105,17 @@
 			 url('#{$url}.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
 			 url('#{$url}.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 			 url('#{$url}.ttf') format('truetype');
+	}
+}
+
+@mixin fa {
+	@if ($lang == fa) {
+		@content;
+	}
+}
+
+@mixin en {
+	@if ($lang == en) {
+		@content;
 	}
 }

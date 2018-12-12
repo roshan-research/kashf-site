@@ -2,12 +2,14 @@ html,
 body {
 	direction: $direction;
 	text-align: $right;
+	font-size: 16px;
+	line-height: 1.7;
+	overflow-x: hidden;
+	
 	@if($lang == fa) {
 		font-family: Shabnam;
 	}
-	font-size: 16px;
-	line-height: 1.7;
-
+	
 	@include mq_min($xlg){font-size: 18px;}
 	@include mq_min($xxlg){font-size: 20px;}
 }
