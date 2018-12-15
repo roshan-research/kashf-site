@@ -28,10 +28,11 @@ const buster = require('gulp-cache-bust');
 
 const cwd = path.basename(process.cwd());
 var isProduction = process.env.NODE_ENV == "production" || false;
-var BASEURL = process.cwd() + "/dist";
+// var BASEURL = process.cwd() + "/dist";
+var BASEURL = ".";
 
 const src = 'src';
-const dist = 'dist';
+const dist = '.';
 
 const paths = {
   html: {
@@ -232,7 +233,8 @@ gulp.task('favicons', function () {
 });
 
 gulp.task('clean', function() {
-	return del([dist]);
+	// return del([dist]); // temporary disabled
+	return del(['index.html', 'en', 'assets', '.publish']);
 });
 
 gulp.task('browser-sync', function() {
@@ -272,6 +274,6 @@ gulp.task('gh-pages', () => {
 });
 
 gulp.task('deploy', (cb) => {
-  BASEURL = "http://hashtroodiam.github.io/kashf";
+  // BASEURL = "/";
 	sequence('build', 'gh-pages', cb);
 });
