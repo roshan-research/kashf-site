@@ -6,8 +6,10 @@
     "smooth-scroll": "^15.0.0"
   },
   "scripts": {
+    "dev": "gulp serve",
     "build": "gulp build",
-    "dev": "gulp serve"
+    "deploy": "gulp deploy"
+
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
