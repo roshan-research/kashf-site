@@ -5,6 +5,6 @@ nav#navbar.navbar
         each link in $i18n.nav ? $i18n.nav : []
           a(data-scroll='' href='#'+link.url) #{link.title}
         - if($i18n.lang == 'fa')
-          a(href='/en') English
+          a(href=baseurl+'/en') English
         - else
-          a(href='/' class='type-fa') فارسی
+          a(href=baseurl class='type-fa') فارسی
