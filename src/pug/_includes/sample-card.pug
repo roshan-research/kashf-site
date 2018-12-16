@@ -5,7 +5,7 @@ mixin card(props)
                 img.sample__img(src=baseurl+props.img alt=props.title)
             - if(props.text)
                 .sample__text.--light
-                    p #{props.text}
+                    p!= escaped(props.text)
             .sample__footer
                 each tag in (props.tags) ? props.tags : []
                     span.sample__tag
