@@ -51,6 +51,7 @@ const paths = {
   },
   js: {
     src: src + '/js/main.js',
+    watch: src + '/js/**/*.js',
     dist: dist + '/assets/js'
   },
   fonts: {
@@ -251,9 +252,9 @@ gulp.task('all', (cb) => {
 gulp.task('watch', function() {
 	gulp.watch(paths.html.src, ['html']);
 	gulp.watch(paths.styles.src, ['styles']);
-	gulp.watch(paths.js.src, ['js']);
+	gulp.watch(paths.js.watch, ['js']);
 	gulp.watch(paths.svgSprite.src, ['svg-sprite']);
-	gulp.watch(paths.styles.src, { cwd:'./' }, ['images']);
+	gulp.watch(paths.images.src, { cwd:'./' }, ['images']);
 });
 
 gulp.task('serve', function(cb) {
