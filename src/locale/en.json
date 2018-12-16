@@ -130,12 +130,10 @@
             "address": "kashf@sobhe.ir",
             "label": "+98 21 6640 4125"
         },
-        "address": "No. 1070, Enghelab St.",
-        "address2": "Tehran, Iran",
+        "address": "No. 1070, Enghelab St.\nTehran, Iran",
         "sobhe_link": "Visit Sobhe.ir",
         "form": {
-            "title": "Send a message,",
-            "title2": "right away",
+            "title": "Send a message,\nright away",
             "action_email": "kashf@sobhe.ir",
             "email_placeholder": "Email address",
             "message_placeholder": "Your message ..",

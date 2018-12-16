@@ -187,11 +187,10 @@
             "address": "+982166404125",
             "label": "+98 21 6640 4125"
         },
-        "address": "خیابان انقلاب پلاک ۱۰۷۰",
-        "address2": "تهران، ایران",
+        "address": "خیابان انقلاب پلاک ۱۰۷۰\nتهران، ایران",
         "sobhe_link": "به Sobhe.ir بروید",
         "form": {
-            "title": "همین حالا پیام بفرستید",
+            "title": "همین حالا،\nیک پیام بفرستید",
             "action_email": "kashf@sobhe.ir",
             "email_placeholder": "آدرس ایمیل",
             "message_placeholder": "پیام شما ..",
