@@ -32,7 +32,7 @@ var isProduction = process.env.NODE_ENV == "production" || false;
 var BASEURL = ".";
 
 const src = 'src';
-const dist = '.';
+const dist = 'dist';
 
 const paths = {
   html: {
