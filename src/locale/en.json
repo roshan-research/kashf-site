@@ -1,7 +1,7 @@
 {
     "lang": "en",
     "site": {
-        "title": "Kashf - Machine Learning"
+        "title": "Kashf"
     },
     "nav": [{
             "title": "Home",
@@ -41,7 +41,7 @@
             },
             {
                 "title": "Labeling Hard Examples",
-                "subtext": "There are instances of a concept which Kashf confiedntly recongizes, but some examples are more troublesome. Kashf asks label of these important instances from user.<br>So, Kashf does more with less user labels.",
+                "subtext": "There are instances of a concept which Kashf confiedntly recongizes, but some examples are more troublesome. Kashf asks label of these important instances from user. So, Kashf does more with less user labels.",
                 "color": "orange",
                 "icon": "tag"
             },
@@ -53,7 +53,7 @@
             },
             {
                 "title": "Serving At Scale",
-                "subtext": "Through learning process, Kashf is always ready to find concept instances at scale. It uses distributed processing to harness modern hardware&apos;s computation power of cloud solutions.",
+                "subtext": "Through learning process, Kashf is always ready to find concept instances at scale. It uses distributed processing to harness modern hardware's computation power of cloud solutions.",
                 "color": "green",
                 "icon": "fullscreen"
             }
@@ -65,10 +65,6 @@
         "list": [{
                 "img": "/assets/img/aircraft.jpeg",
                 "tags": [{
-                    "score": "100%",
-                    "title": "Air Show"
-                },
-                {
                     "score": "100%",
                     "title": "Air Show"
                 }]
@@ -88,7 +84,7 @@
                 }]
             },
             {
-                "text": "@RyanAFournier Good he crossed the line. President Trump deserves respect &#x270A;. Ban CNN",
+                "text": "@RyanAFournier Good he crossed the line. President Trump deserves respect ✊. Ban CNN",
                 "tags": [{
                     "score": "71%",
                     "title": "Trump is a Good Man"
@@ -116,7 +112,7 @@
                 }]
             },
             {
-                "text": "i can&rsquo;t wait to own a @Tesla when i&rsquo;m extremely finically stable",
+                "text": "i can’t wait to own a @Tesla when i’m extremely finically stable",
                 "tags": [{
                     "score": "71%",
                     "title": "Want to Buy"
