@@ -9,7 +9,7 @@ npm run build
 ```bash
 npm run dev
 ```
-<!-- ## Deploy dist folder to gh-pages branch:
+## Deploy dist folder to gh-pages branch:
 ```bash
 npm run deploy
-``` -->
+```
