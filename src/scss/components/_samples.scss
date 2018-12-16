@@ -58,9 +58,12 @@
         }
 
         p {
-            font-size: 1.3em;
             line-height: 1.5;
+            @include fa {
+                font-size: 1.4em;
+            }
             @include en {
+                font-size: 1.3em;
                 font-family: TimesNewRomanPSMT;
                 letter-spacing: .05em;
             }
@@ -98,12 +101,13 @@
         }
     }
     &__tag {
-        font-size: 2em;
         color: #6C6C6C;
         @include fa {
+            font-size: 1.4em;
             font-weight: bold;
         }
         @include en {
+            font-size: 2em;
             font-family: DINAlternate-Bold;
             text-transform: lowercase;
         }
@@ -111,6 +115,10 @@
         .score {
             font-size: 0.8em;
             color: rgba(108,108,108,0.55);
+        }
+
+        & + & {
+            margin-#{$right}: 1em;
         }
     }
 }

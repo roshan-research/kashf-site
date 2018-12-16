@@ -10,9 +10,8 @@
     
     &.--condensed {
         padding: 0;
-        background-color: rgba($hero-bg, 0.18);
-        // background-color: rgba(#f7f7f7, 0.95);
-        // background-color: alphaless(#D8D8D8, 0.18);
+        background-color: #fff;
+        border-bottom: 1px solid rgba(#000,0.05);
 
         a {
             color: #6C6C6C;
@@ -24,11 +23,14 @@
         display: inline-block;
         vertical-align: middle;
         padding: $navbar-link-y-pad $navbar-link-x-pad;
-        font-size: .7rem;
         color: #999999;
         text-transform: uppercase;
         transition: $transition;
+        @include fa {
+            font-size: .8rem;
+        }
         @include en {
+            font-size: .7rem;
             font-family: HelveticaNeue-Bold;
             letter-spacing: 0.05em;
         }
@@ -38,10 +40,11 @@
             position: absolute;
             z-index: -1;
             top: 0;
-            left: 0;
+            #{$right}: 0;
             width: 0;
             height: 100%;
-            background-color: rgba(#000, 0.1);
+            // background-color: rgba(#000, 0.1);
+            background-color: rgba($hero-bg, 0.5);
             transition: width .2s ease;
         }
 

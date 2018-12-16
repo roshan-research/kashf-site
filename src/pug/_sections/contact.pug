@@ -5,9 +5,7 @@ section#contact.section.contact-area
                 .contact-col
                     h3.section-title= $i18n.contact.title
                 .contact-col
-                    h4.section-title.--small= $i18n.contact.form.title
-                        br
-                        = $i18n.contact.form.title2
+                    h4.section-title.--small!= escaped($i18n.contact.form.title)
             .contact-body
                 .contact-col
                     .contact-card.contact-details
@@ -24,9 +22,7 @@ section#contact.section.contact-area
                         p.row.contact-item
                             i.contact-item__icon
                                 include ../../images/pin.svg
-                            span= $i18n.contact.address
-                                br 
-                                = $i18n.contact.address2
+                            span!= escaped($i18n.contact.address)
                         a.contact-card__btn.btn.--primary.--small(href='http://sobhe.ir' target='_blank')= $i18n.contact.sobhe_link
                 .contact-col
                     .contact-card
