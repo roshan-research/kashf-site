@@ -5,7 +5,7 @@ export default function () {
 
     function checkState() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if(scrollTop > heroBottom - 100) {
+        if(scrollTop > heroBottom) {
             navbar.classList.add('--condensed');
         } else {
             navbar.classList.remove('--condensed');
