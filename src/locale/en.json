@@ -18,6 +18,10 @@
         {
             "title": "Samples",
             "url": "samples"
+        },
+        {
+            "title": "Contact",
+            "url": "contact"
         }
     ],
     "hero": {
@@ -128,7 +132,7 @@
         },
         "tel": {
             "address": "kashf@sobhe.ir",
-            "label": "+98 21 6640 4125"
+            "label": "+98 21 9100 33 03"
         },
         "address": "No. 1070, Enghelab St.\nTehran, Iran",
         "sobhe_link": "Visit Sobhe.ir",

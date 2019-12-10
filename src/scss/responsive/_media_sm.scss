@@ -1,0 +1,38 @@
+@media screen and (min-width:576px) and (max-width:767px) {
+    div#hamburgerNav {
+        display: none
+    }
+    //----------------------------   
+    .container {
+        margin-top: 0;
+    }
+    //----------------------------
+    .hero-content {
+        font-size: .8em;
+        text-align: center;
+        width: unset;
+    }
+    //----------------------------
+    // body {
+    //     font-size: 12px
+    // }
+    // html {
+    //     font-size: 13px
+    // }
+    //----------------------------
+    .features-area::before {
+        width: 80vw;
+        height: 200vh;
+        // max-height: 140vh;
+    }
+    //----------------------------
+    .contact-headers {
+        margin-top: 5rem;
+    }
+    .contact-body {
+        margin-top: -4rem;
+    }
+    .contact-col_2 {
+        display: none
+    }
+}

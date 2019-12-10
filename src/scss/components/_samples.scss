@@ -1,13 +1,10 @@
 .samples-area {
-
     &__header {
         width: 70%;
         margin-left: auto;
         margin-right: auto;
     }
-    &__title {
-
-    }
+    &__title {}
     &__subtitle {
         margin-top: 0.5em;
     }
@@ -27,19 +24,16 @@
     width: $sample-area-column-width;
     padding: $sample-card-outer-pad;
     transition: transform .2s ease;
-
     &:hover {
         z-index: 10;
         transform: translateY(-1em) scale(1.1);
     }
-
     &.--hidden {
         .sample__footer,
         .sample__img {
             opacity: 0;
         }
     }
-
     &__img {
         width: 100%;
         height: auto;
@@ -48,15 +42,16 @@
     &__text {
         font-size: 1rem;
         padding: 1.5em;
-        color: rgba(60,60,60,0.8);
-        @if($sample-area-columns == 2) {
-            font-size: 1rem;
-        } @else if($sample-area-columns == 3) {
-            font-size: .7rem;
-        } @else {
+        color: rgba(60, 60, 60, 0.8);
+        @if($sample-area-columns==2) {
             font-size: 1rem;
         }
-
+        @else if($sample-area-columns==3) {
+            font-size: .7rem;
+        }
+        @else {
+            font-size: 1rem;
+        }
         p {
             line-height: 1.5;
             @include fa {
@@ -68,16 +63,13 @@
                 letter-spacing: .05em;
             }
         }
-
         &.--dark {
             background-color: $sample-card-dark-text-bg;
             color: $sample-card-dark-text-color;
         }
-
         &.--light {
             padding-bottom: 0;
             background-color: $sample-card-light-text-bg;
-
             p {
                 padding-bottom: $sample-card-footer-padding + .5;
                 border-bottom: $sample-card-white-text-border;
@@ -92,11 +84,13 @@
         line-height: 1;
         background-color: #fff;
         transition: $transition;
-        @if($sample-area-columns == 2) {
+        @if($sample-area-columns==2) {
             font-size: 1rem;
-        } @else if($sample-area-columns == 3) {
+        }
+        @else if($sample-area-columns==3) {
             font-size: .7rem;
-        } @else {
+        }
+        @else {
             font-size: 1rem;
         }
     }
@@ -111,13 +105,11 @@
             font-family: DINAlternate-Bold;
             text-transform: lowercase;
         }
-
         .score {
             font-size: 0.8em;
-            color: rgba(108,108,108,0.55);
+            color: rgba(108, 108, 108, 0.55);
         }
-
-        & + & {
+        &+& {
             margin-#{$right}: 1em;
         }
     }

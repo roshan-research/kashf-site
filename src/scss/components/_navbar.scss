@@ -7,17 +7,14 @@
     padding: 3rem 0;
     font-size: 0;
     transition: $transition;
-    
     &.--condensed {
         padding: 0;
         background-color: #fff;
-        border-bottom: 1px solid rgba(#000,0.1);
-
+        border-bottom: 1px solid rgba(#000, 0.1);
         a {
             color: #6C6C6C;
         }
     }
-
     a {
         position: relative;
         display: inline-block;
@@ -34,7 +31,6 @@
             font-family: HelveticaNeue-Bold;
             letter-spacing: 0.05em;
         }
-
         &::before {
             content: '';
             position: absolute;
@@ -47,7 +43,6 @@
             background-color: rgba($hero-bg, 0.5);
             transition: width .2s ease;
         }
-
         &:hover {
             color: #fff;
             &::before {
@@ -66,6 +61,11 @@
 .navbar-sections {
     float: $right;
 }
+
 .navbar-main-link {
     float: $left;
+}
+
+.navbar-toggler {
+    border: unset;
 }

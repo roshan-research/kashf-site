@@ -4,7 +4,7 @@ section#contact.section.contact-area
             .contact-headers
                 .contact-col
                     h3.section-title= $i18n.contact.title
-                .contact-col
+                .contact-col.contact-col_1
                     h4.section-title.--small!= escaped($i18n.contact.form.title)
             .contact-body
                 .contact-col
@@ -24,6 +24,11 @@ section#contact.section.contact-area
                                 include ../../images/pin.svg
                             span!= escaped($i18n.contact.address)
                         a.contact-card__btn.btn.--primary.--small(href='http://sobhe.ir' target='_blank')= $i18n.contact.sobhe_link
+
+                .contact-headers_2
+                    .contact-col.contact-col_2
+                        h4.section-title.--small!= escaped($i18n.contact.form.title)
+
                 .contact-col
                     .contact-card
                         form#contactForm.contact-form(action='https://formspree.io/'+$i18n.contact.contact_form_action_email method='POST')

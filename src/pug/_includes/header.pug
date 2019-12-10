@@ -1,10 +1,51 @@
 nav#navbar.navbar
   .container
-    .navbar-inner
-      .navbar-sections
-        each link in $i18n.nav ? $i18n.nav : []
-          a(data-scroll='' href='#'+link.url) #{link.title}
-        - if($i18n.lang == 'fa')
-          a(href=baseurl+'/en') English
-        - else
-          a(href=baseurl class='type-fa') فارسی
+    #horizonlalNav
+      .navbar-inner
+        .navbar-sections
+          each link in $i18n.nav ? $i18n.nav : []
+            a(data-scroll='' href='#'+link.url) #{link.title}
+          - if($i18n.lang == 'fa')
+            a(href=baseurl+'/en') English
+          - else
+            a(href=baseurl class='type-fa') فارسی
+    #hamburgerNav
+      nav.navbar-light
+        button#btnHamburger.navbar-toggler.hidden-sm-up(type='button' onclick='lockScroll()' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+          span.line
+          span.line
+          span.line
+
+
+        #navbarResponsive.collapse.navbar-toggleable-xs
+          .navbar-inner
+            .navbar-sections
+              each link in $i18n.nav ? $i18n.nav : []
+                a.nav-link(data-scroll='' href='#'+link.url class=' link' ) #{link.title} 
+              - if($i18n.lang == 'fa')
+                a(href=baseurl+'/en' class=' link') English
+              - else
+                a(href=baseurl class='type-fa' class=' link') فارسی
+
+
+  script.
+    $('.navbar-sections a').on('click', function(){
+    $('.btn-navbar').click(); //bootstrap 2.x
+    $('.navbar-toggle').click(); //bootstrap 3.x by Richard
+    $('.navbar-toggler').click(); //bootstrap 4.x
+    });
+    function lockScroll() {
+    if ($('html').hasClass('lock-scroll')) {
+    //- $('body').removeClass('lock-scroll');
+    $('html').removeClass('lock-scroll');
+    }
+    else {
+    //- $('body').addClass('lock-scroll');
+    $('html').addClass('lock-scroll');
+    }
+    }
+
+
+   
+
+

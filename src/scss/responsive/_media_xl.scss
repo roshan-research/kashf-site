@@ -1,0 +1,23 @@
+@media screen and (min-width:1200px) {
+    div#hamburgerNav {
+        display: none
+    }
+    //----------------------------
+    .container {
+        margin-top: 0;
+    }
+    //----------------------------
+    .contact-headers {
+        margin-top: 6rem;
+    }
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 7rem !important;
+    }
+    .section-title.--small {
+        font-size: 1.2em;
+    }
+    .contact-col_2 {
+        display: none
+    }
+}
