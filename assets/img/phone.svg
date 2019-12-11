@@ -1,4 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 61 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="M49,60 C22.49,60 1,38.51 1,12 L11,2 L25,16 L15,26 L35,46 L45,36 L59,50 L49,60 Z" stroke-width="2" vector-effect="non-scaling-stroke"></path>
-</svg>
+<svg viewBox="0 0 61 61" xmlns="http://www.w3.org/2000/svg"><path d="M49 60C22.49 60 1 38.51 1 12L11 2l14 14-10 10 20 20 10-10 14 14-10 10z" vector-effect="non-scaling-stroke"/></svg>
